@@ -4,14 +4,13 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.widget.Toast
 
-val DATABASE_NAME = "ProductsDB"
-val TABLE_NAME = "Products"
-val COL_NAME = "name"
-val COL_PRICE = "price"
-val COL_QUANTITY = "quantity"
-val COL_ID = "ID"
+const val DATABASE_NAME = "ProductsDB"
+const val TABLE_NAME = "Products"
+const val COL_NAME = "name"
+const val COL_PRICE = "price"
+const val COL_QUANTITY = "quantity"
+const val COL_ID = "ID"
 
 class DatabaseHandler(var ctx: Context) : SQLiteOpenHelper(ctx, DATABASE_NAME, null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
@@ -27,7 +26,7 @@ class DatabaseHandler(var ctx: Context) : SQLiteOpenHelper(ctx, DATABASE_NAME, n
         TODO("Not yet implemented")
     }
 
-    fun insertData(product: Product){
+    fun insertData(product: Product): Boolean{
         val db = this.writableDatabase
         var cv = ContentValues()
 
@@ -37,16 +36,19 @@ class DatabaseHandler(var ctx: Context) : SQLiteOpenHelper(ctx, DATABASE_NAME, n
 
         var result = db.insert(TABLE_NAME, null, cv)
 
+        /* You can keep this, if it works for you
         if(result == (-1).toLong())
             Toast.makeText(ctx, "Insertion failed", Toast.LENGTH_SHORT).show()
         else
             Toast.makeText(ctx, "Successfully inserted", Toast.LENGTH_SHORT).show()
+         */
+        return result != (-1).toLong()
     }
 
     fun readData(): MutableList<Product>{
         var list: MutableList<Product> = ArrayList()
         val db = this.readableDatabase
-        val query = "Select * from " + TABLE_NAME;
+        val query = "Select * from $TABLE_NAME";
         val result = db.rawQuery(query, null)
         if(result.moveToFirst()){
             do {
@@ -64,11 +66,23 @@ class DatabaseHandler(var ctx: Context) : SQLiteOpenHelper(ctx, DATABASE_NAME, n
         return list
     }
 
-    fun deleteData(index: Int){
-        TODO("Not yet implemented")
+    fun deleteData(index: Int): Boolean{
+        val db = this.writableDatabase
+        val r = db.delete(TABLE_NAME, "$COL_ID=$index", null)
+        db.close()
+        return r == 1
     }
 
-    fun updateData(index: Int, product: Product){
-        TODO("Not yet implemented")
+    fun updateData(product: Product): Boolean{
+        val db = this.writableDatabase
+        val values = ContentValues()
+
+        values.put(COL_NAME, product.name)
+        values.put(COL_PRICE, product.price)
+        values.put(COL_QUANTITY, product.quantity)
+
+        val r = db.update(TABLE_NAME, values, "$COL_ID=${product.id}", null)
+        db.close()
+        return r == 1
     }
 }
