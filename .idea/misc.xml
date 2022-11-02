@@ -8,11 +8,15 @@
         <entry key="..\:/Users/lalor/Documents/Git/School/DesarrollodeAplicacionesMoviles/AndroidStudio/ProductHandler/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/scago/Documents/GitHub/ProductHandler/app/src/main/res/layout/activity_add.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/scago/Documents/GitHub/ProductHandler/app/src/main/res/layout/activity_main.xml" value="0.1983695652173913" />
+        <entry key="..\:/ricar/Documents/UP/7/Apps/ProductHandler/app/src/main/res/layout/activity_add.xml" value="0.18085106382978725" />
+        <entry key="..\:/ricar/Documents/UP/7/Apps/ProductHandler/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/ricar/Documents/UP/7/Apps/ProductHandler/app/src/main/res/layout/activity_update.xml" value="0.18085106382978725" />
+        <entry key="..\:/ricar/Documents/UP/7/Apps/ProductHandler/app/src/main/res/layout/fragment_product_row.xml" value="0.5" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

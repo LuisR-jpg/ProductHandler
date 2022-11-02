@@ -1,6 +1,8 @@
 package com.example.producthandler
 
-class Product {
+import java.io.Serializable
+
+class Product: Serializable {
     var id : Int = 0
     var name: String = ""
     var quantity: Int = 0
