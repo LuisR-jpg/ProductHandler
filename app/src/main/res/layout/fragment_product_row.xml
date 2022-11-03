@@ -36,16 +36,16 @@
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
-                android:backgroundTint="@android:color/holo_red_dark"
+                android:backgroundTint="#C63232"
                 app:icon="@android:drawable/ic_delete"
                 app:iconGravity="textStart"
-                app:iconPadding="0dp"/>
+                app:iconPadding="0dp" />
 
             <Button
                 android:id="@+id/btnUpdate"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#2196F3"
+                android:backgroundTint="#9060E6"
                 app:icon="@android:drawable/ic_menu_edit"
                 app:iconGravity="textStart"
                 app:iconPadding="0dp" />
